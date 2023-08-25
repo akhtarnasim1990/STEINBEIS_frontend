@@ -17,8 +17,6 @@ const UserDatailsPage = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      console.log(name, age, gender, dob);
-      console.log(age === "");
       if (name === "") {
         return toast.warning("Please enter your name.");
       } else if (age === "") {
@@ -34,13 +32,13 @@ const UserDatailsPage = () => {
           if (response.data.success) {
             toast.success(response.data.message);
           }
-          console.log(response);
         })
         .catch((error) => {
-          if (!error.response.data.success) {
+          if (error.response && !error.response.data.success) {
             toast.error(error.response.data.message);
+          } else {
+            console.log(error);
           }
-          console.log(error);
         });
     } catch (error) {
       console.log(error);
@@ -50,7 +48,6 @@ const UserDatailsPage = () => {
   return (
     <div className="login-container">
       <div className="login-left">
-        <div className="company-name">Nasim webtechi</div>
         <div className="login-button" onClick={loginHanler}>
           Login
         </div>

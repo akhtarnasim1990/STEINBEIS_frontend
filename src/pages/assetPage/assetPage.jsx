@@ -18,7 +18,6 @@ const AssetPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(assetName, quantity, cost);
     try {
       const token = localStorage.getItem("user_auth_token");
       const config = {

@@ -23,7 +23,6 @@
 }
 
 .login-container .login-left .login-body .dob input {
-  /* padding: 10px 30px; */
   outline: none;
   border: none;
   width: 25%;
@@ -36,10 +35,6 @@
   color: #fff;
   border-radius: 5px;
   padding: 0 5px;
-}
-
-.login-container .login-left .login-body .gender-dob-row .dob button:hover {
-  opacity: 0.9;
 }
 
 .login-container .login-left .login-body .gender-dob-row .age {

@@ -10,7 +10,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
 
   const loginHandler = () => {
-    console.log(name, password);
     try {
       if (name === "") {
         return toast.warning("Please enter your name.");
@@ -28,10 +27,11 @@ const LoginPage = () => {
           console.log(response);
         })
         .catch((error) => {
-          if (!error.response.data.success) {
+          if (error.response && !error.response.data.success) {
             toast.error(error.response.data.message);
+          } else {
+            console.log(error);
           }
-          console.log(error);
         });
     } catch (error) {
       console.log(error);
@@ -41,7 +41,6 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="login-left">
-        <div className="company-name">Nasim webtechi</div>
         <div className="login-body">
           <div className="login-page-title">Welcome Back</div>
           <div className="title-note">Welcome back! please enter your details.</div>
